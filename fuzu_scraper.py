@@ -33,7 +33,7 @@ def send_email(jobs):
             subject="Fuzu Daily Jobs",
             contents="\n\n".join(jobs)
         )
-
 if __name__ == "__main__":
     jobs = scrape_fuzu()
+    print(f"Scraped {len(jobs)} jobs.")
     send_email(jobs)
