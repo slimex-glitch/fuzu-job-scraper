@@ -28,9 +28,11 @@ def send_email(jobs):
     if jobs:
         yag = yagmail.SMTP(os.getenv("EMAIL_ADDRESS"),
                            os.getenv("EMAIL_PASSWORD"))
-        yag.send(os.getenv("EMAIL_ADDRESS"),
-                 "Fuzu Daily Jobs",
-                 "\n\n".join(jobs))
+        yag.send(
+            to="amdanygeorge00@gmail.com",
+            subject="Fuzu Daily Jobs",
+            contents="\n\n".join(jobs)
+        )
 
 if __name__ == "__main__":
     jobs = scrape_fuzu()
